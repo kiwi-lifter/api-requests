@@ -1,4 +1,5 @@
-function loadData() {
+function loadData(e) {
+	e.preventDefault();
     var $body = $('body');
     var $wikiElem = $('#wikipedia-links');
     var $nytHeaderElem = $('#nytimes-header');
@@ -21,8 +22,9 @@ function loadData() {
 	
 	//NYTimes Ajax request. Pretty please. 
      var timesURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
-        cityStr + '&sort=newest&api-key=d785b92816364c388bda7f12d75af739';
-         $.getJSON(timesURL, function(data){
+        cityStr + '&sort=newest&api-key=d785b92816364c388bda7f12d75af739:8:75159936';
+			
+        $.getJSON(timesURL, function(data){
 
              $nytHeaderElem.text('New York Times Articles about ' + cityStr);
 
@@ -36,7 +38,15 @@ function loadData() {
                      '</li>');
              }
                  return false;
-         });
+         }).fail(function(e){
+			console.log('error!!!!');
+			$nytHeaderElem.text("Error with request.");
+			
+		});
+		
+		wikipediaURL = 'https://www.mediawiki.org/w/api.php?action=query&titles=' + cityStr +'&format=json';
+		$.ajax()
+    //return false;
 };
 
 $('#form-container').submit(loadData);
