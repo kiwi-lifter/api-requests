@@ -15,11 +15,11 @@ function loadData(e) {
 	var cityStr = $('#city').val();
     var address = streetStr + ', ' + cityStr;
 	
-	$greeting.text('Is ' + address + ' where you want to go?');
+	$greeting.text('Does ' + address + ' seem like a great holiday destinaition?');
 	
 	var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
 	$body.append('<img class="bgimg" src="' + streetViewUrl + '">');
-	
+	/**
 	//NYTimes Ajax request. Pretty please. 
      var timesURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
         cityStr + '&sort=newest&api-key=d785b92816364c388bda7f12d75af739';
@@ -38,13 +38,11 @@ function loadData(e) {
              }
                  return false;
 
-		 })
-		 /**
-		 .fail(function(e){
+		 }).fail(function(e){
 				console.log('error!!!!');
 				$nytHeaderElem.text("Error with request.");
 			});
-		**/
+	**/
 };
 
 $('#form-container').submit(loadData);
