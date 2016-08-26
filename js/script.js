@@ -28,7 +28,7 @@ function loadData(e) {
              $nytHeaderElem.text('New York Times Articles about ' + cityStr);
 
              articles = data.response.docs;
-           console.log(data);
+ 
              for (var i = 0; i < articles.length; i++) {
                  var article = articles[i];
                  $nytElem.append('<li class="article">'+
@@ -42,6 +42,31 @@ function loadData(e) {
 				console.log('error!!!!');
 				$nytHeaderElem.text("Error with request.");
 			});
+			
+		var wikipediaURL = 'http://en.wikipediaqweqwe.org/w/api.php?action=opensearch&search=' + encodeURIComponent(cityStr) +'&format=json';
+		
+		var wikiRequestTimeout = setTimeout(function(){
+			$wikiElem.text("Failed to get wikipedia resources");
+		}, 8000);
+		
+		$.ajax({
+			url: wikipediaURL,
+			dataType: "jsonp",
+			success: function(data) {
+				console.log(data[0]);
+				console.log(data);
+				
+				var articleList = data[3];
+					for (var i = 0; i < articleList.length; i++) {
+						articleStr = articleList[i];
+						var url = articleStr;
+						$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
+					};
+					
+					clearTimeout(wikiRequestTimeout);
+			}
+			
+		});	
 };
 
 $('#form-container').submit(loadData);
