@@ -43,7 +43,7 @@ function loadData(e) {
 				$nytHeaderElem.text("Error with request.");
 			});
 			
-		var wikipediaURL = 'https://en.wikipediaqweqwe.org/w/api.php?action=opensearch&search=' + encodeURIComponent(cityStr) +'&format=json';
+		var wikipediaURL = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + encodeURIComponent(cityStr) +'&format=json';
 		
 		var wikiRequestTimeout = setTimeout(function(){
 			$wikiElem.text("Failed to get wikipedia resources");
