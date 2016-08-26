@@ -21,7 +21,7 @@ function loadData(e) {
 	$body.append('<img class="bgimg" src="' + streetViewUrl + '">');
 
 	//NYTimes Ajax request. Pretty please. 
-     var timesURL = 'https://api.nytimesxxx.com/svc/search/v2/articlesearch.json?q=' +
+     var timesURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
         cityStr + '&sort=newest&api-key=d785b92816364c388bda7f12d75af739';
          $.getJSON(timesURL, function(data){
 
