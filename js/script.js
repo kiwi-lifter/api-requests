@@ -17,7 +17,7 @@ function loadData(e) {
 	
 	$greeting.text('Is ' + address + ' where you are going?');
 	
-	var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '&key=AIzaSyAA8H9UCNRsqIWw4vCWEyuXmgHVO50HnVU';
+	var streetViewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '&key=AIzaSyAA8H9UCNRsqIWw4vCWEyuXmgHVO50HnVU';
 	$body.append('<img class="bgimg" src="' + streetViewUrl + '">');
 
 	//NYTimes Ajax request. Pretty please. 
