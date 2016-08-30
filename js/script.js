@@ -17,11 +17,11 @@ function loadData(e) {
 	
 	$greeting.text('Is ' + address + ' where you are going?');
 	
-	var streetViewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '&key=AIzaSyDGK6N8OFYIDoqTgflzdCejqO1AB0uzajo';
+	var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '&key=AIzaSyDGK6N8OFYIDoqTgflzdCejqO1AB0uzajo';
 	$body.append('<img class="bgimg" src="' + streetViewUrl + '">');
 
 	//NYTimes Ajax request. Pretty please. 
-     var timesURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
+     var timesURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
         cityStr + '&sort=newest&api-key=d785b92816364c388bda7f12d75af739';
          $.getJSON(timesURL, function(data){
 
