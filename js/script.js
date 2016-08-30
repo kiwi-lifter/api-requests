@@ -15,9 +15,9 @@ function loadData(e) {
 	var cityStr = $('#city').val();
     var address = streetStr + ', ' + cityStr;
 	
-	$greeting.text('Does ' + address + ' seem like a great holiday destinaition?');
+	$greeting.text('Is ' + address + ' where you are going?');
 	
-	var streetViewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
+	var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '&key=AIzaSyAA8H9UCNRsqIWw4vCWEyuXmgHVO50HnVU';
 	$body.append('<img class="bgimg" src="' + streetViewUrl + '">');
 
 	//NYTimes Ajax request. Pretty please. 
@@ -56,10 +56,13 @@ function loadData(e) {
 				console.log(data[0]);
 				console.log(data);
 				
-				var articleList = data[3];
+				var articleLink = data[3];
+				var articleList = data[1];
+				var articleStr = "";
+				var url = "";
 					for (var i = 0; i < articleList.length; i++) {
 						articleStr = articleList[i];
-						var url = articleStr;
+						url = articleLink[i];
 						$wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
 					};
 					
